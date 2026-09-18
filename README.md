@@ -1,9 +1,9 @@
 # salq.io
 
-Public office marketing site for [Salq](https://salq.io). Grey company office: Finance (Sanne, Omar, Ines) is live. Sales, Marketing, Social, Admin, Tax, Reporting, and Support are later hires with named desks from the catalog.
+Public office marketing site for [Salq](https://salq.io). Grey company office: What we do, eight floors, and 25 named desks. Finance (Sanne, Omar, Ines) is live. The other seven floors are later hires.
 
-Built from [salqio/odin](https://github.com/salqio/odin) `web/` ([PR #15](https://github.com/salqio/odin/pull/15)). Served by GitHub Pages with custom domain `salq.io`.
+Built from the stacked marketing tree of [salqio/odin](https://github.com/salqio/odin) `web/` (worker pages + what-we-do/floors). Served by GitHub Pages with custom domain `salq.io`.
 
-`/privacy` is a real HTML page (200) so Stripe and other processors can check it.
+`/privacy` is a real HTML page (200) so Stripe and other processors can check it. We do not sell bank data.
 
 Do not point `aladdin.salq.io` here.

@@ -3,12 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <meta
       name="description"
       content="Salq is the weekly money desk for a Dutch BV or ZZP. Get paid on time. Know what the company can pay."
     />
-    <meta name="theme-color" content="#f0f0f0" />
+    <meta name="theme-color" content="#f0f0f0" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1c1c1c" media="(prefers-color-scheme: dark)" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Salq" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
     <title>Salq — Get paid on time</title>
     <script>
       (function () {
@@ -16,21 +27,33 @@
         if (p.length > 1 && p.charAt(p.length - 1) === '/') {
           history.replaceState(null, '', p.replace(/\/+$/, '') + location.search + location.hash)
         }
+        var w = window.innerWidth || 0
+        var frame = w >= 1280 ? 'desktop' : w >= 1024 ? 'tablet' : w >= 700 ? 'duo' : 'phone'
+        document.documentElement.setAttribute('data-salq-frame', frame)
+        var h = (window.visualViewport && window.visualViewport.height) || window.innerHeight
+        document.documentElement.style.setProperty('--app-height', Math.round(h) + 'px')
+        var nav = window.navigator
+        var standalone =
+          nav.standalone === true ||
+          (window.matchMedia &&
+            (window.matchMedia('(display-mode: standalone)').matches ||
+              window.matchMedia('(display-mode: fullscreen)').matches))
+        if (standalone) document.documentElement.classList.add('salq-standalone')
       })()
     </script>
-    <script type="module" crossorigin src="/assets/index-CxgDvR4i.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CcXunzBQ.css">
+    <script type="module" crossorigin src="/assets/index-BMJr12re.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D_U3O9RV.css">
   </head>
   <body>
-        <div id="root">
+    <div id="root">
     <div class="min-h-dvh bg-canvas text-ink">
       <header class="sticky top-0 z-10 border-b border-line bg-canvas">
         <div class="mx-auto max-w-xl px-4 py-3">
           <div class="flex items-center justify-between gap-3">
             <a href="/" class="text-[15px] font-semibold tracking-tight text-ink">Salq</a>
-            <a href="/#waitlist" class="inline-flex min-h-9 shrink-0 items-center rounded border border-ink bg-ink px-3 text-[13px] font-medium text-canvas">Request access</a>
           </div>
           <nav class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[13px] text-muted">
+            <a href="/what-we-do" class="inline-flex min-h-8 items-center">What we do</a>
             <a href="/finance" class="inline-flex min-h-8 items-center">Finance</a>
             <a href="/sales" class="inline-flex min-h-8 items-center">Sales</a>
             <a href="/marketing" class="inline-flex min-h-8 items-center">Marketing</a>
@@ -95,6 +118,6 @@
         </article>
       </main>
     </div>
-  </div>
+</div>
   </body>
 </html>
