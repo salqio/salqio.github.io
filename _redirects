@@ -1,0 +1,2 @@
+# SPA fallback so /privacy, /finance, and people pages work on static hosts.
+/*    /index.html   200
